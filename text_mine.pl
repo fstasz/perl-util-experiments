@@ -15,8 +15,11 @@ my $total_words = 0;
 my $aeiou_words = 0;
 my $total_in_order_vowels = 0;
 
+# Return words containing aeiou.
 &all_vowels;
+# Return count of words missing each vowel.
 &missing_vowels;
+# Return words containing in order aeiou.
 &ordered_vowels;
 
 sub all_vowels {
@@ -64,6 +67,7 @@ sub missing_vowels {
         }
     }
 
+    # Sort hash based on value.
     foreach my $key (sort { $freq{$b} <=> $freq{$a} } keys %freq) {
         print "$freq{$key} words do not have an '",${key}, "'\n";
     }
@@ -80,6 +84,6 @@ sub ordered_vowels {
         }
     }
 
-    print "$total_in_order_vowels\n";
+    print "$total_in_order_vowels words contain in order aeiou.\n";
     close($words);
 }
